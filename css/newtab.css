@@ -1,0 +1,257 @@
+/* latin */
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Noto Sans'), local('NotoSans'), url(../fonts/NotoSans_latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Noto Sans'), local('NotoSans'), url(../fonts/NotoSans_latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.full_body {
+    min-width: 1080px;
+    overflow: scroll;
+    margin: 0 40px;
+}
+
+.note-column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+.note_list {
+    min-height: 200px;
+    margin-bottom: 60px;
+}
+
+.note-box {
+    width: 100%;
+}
+
+.note-pad {
+    width: 100%;
+    background-color: #29B6F6;
+    color: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.blue-pad .note-pad {
+    background-color: #29B6F6;
+}
+
+.green-pad .note-pad {
+    background-color: #66BB6A;
+}
+
+.orange-pad .note-pad {
+    background-color: #FF9800;
+}
+
+.red-pad .note-pad {
+    background-color: #EF5350;
+}
+
+.note-head {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    transition: all 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.note-head-front, .note-head-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    backface-visibility: hidden;
+    border-bottom: 1px solid #fff;
+}
+
+.note-head-back {
+    transform: rotateX(180deg);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.flip {
+    transform: rotateX(180deg);
+}
+
+.note-move-box {
+    float: left;
+    width: 40px;
+    height: 40px;
+    cursor: move;
+}
+
+.note-move-icon {
+    width: 4px;
+    height: 4px;
+    margin: 18px auto;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 8px 0 0 0 #fff,
+    -8px 0 0 0 #fff,
+    0 8px 0 0 #fff,
+    0 -8px 0 0 #fff,
+    8px 8px 0 0 #fff,
+    -8px 8px 0 0 #fff,
+    -8px -8px 0 0 #fff,
+    8px -8px 0 0 #fff;
+}
+
+.note-head-text-cover {
+    float: left;
+    width: calc(100% - 62px);
+    height: 40px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.note-head-text-cover::-webkit-scrollbar {
+    display: none;
+}
+
+.note-head-text {
+    min-width: 100%;
+    height: 40px;
+}
+
+.note-head-text[contenteditable]:focus {
+    outline: none;
+}
+
+.note-options {
+    float: right;
+    width: 22px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.note-options-icons {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 18px auto;
+    box-shadow: 0 8px 0 0 #fff,
+    0 -8px 0 0 #fff;
+}
+
+.color-box {
+    float: left;
+    width: 30px;
+    height: 40px;
+    padding: 10px 0 10px 10px;
+}
+
+.color-selector {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.color-blue {
+    background-color: #29B6F6;
+}
+
+.color-green {
+    background-color: #66BB6A;
+}
+
+.color-orange {
+    background-color: #FF9800;
+}
+
+.color-red {
+    background-color: #EF5350;
+}
+
+.blue-pad .color-blue {
+    border: 2px solid #fff;
+}
+
+.green-pad .color-green {
+    border: 2px solid #fff;
+}
+
+.orange-pad .color-orange {
+    border: 2px solid #fff;
+}
+
+.red-pad .color-red {
+    border: 2px solid #fff;
+}
+
+.note-delete {
+    float: right;
+    height: 40px;
+    width: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.note-delete i {
+    height: 30px;
+    width: 24px;
+    margin-top: 7px;
+    margin-left: 3px;
+}
+
+.note-text {
+    min-height: 200px;
+    padding: 10px 20px;
+}
+
+.note-text[contenteditable]:focus {
+    outline: none;
+}
+
+.note-add-box {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #00B0FF;
+    overflow: hidden;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+}
+
+.note-add-box:hover {
+    background-color: #44D0FF;
+    box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.16);
+}
+
+.note-add-icon {
+    width: 32px;
+    height: 32px;
+    margin: 14px;
+    background: linear-gradient(to bottom, transparent 48%, #fff 48%, #fff 52%, transparent 52%),
+    linear-gradient(to right, transparent 48%, #fff 48%, #fff 52%, transparent 52%);
+}
