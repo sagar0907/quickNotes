@@ -187,13 +187,17 @@ let util = function () {
                     case "childList":
                         debouncedCallback();
                         break;
+                    case "attributes":
+                        debouncedCallback();
+                        break;
                 }
             });
         });
         observer.observe(element, {
             characterData: true,
             childList: true,
-            subtree: true
+            subtree: true,
+            attributes: true
         });
     }
 
