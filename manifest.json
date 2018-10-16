@@ -3,7 +3,7 @@
   "name": "Quick Notes",
   "short_name": "Quick Notes",
   "description": "Make and access notes quickly, at the launch of a new tab.",
-  "version": "0.0.1.0",
+  "version": "0.0.1.1",
   "browser_action": {
     "default_icon": "images/Quick_Note_Icon_48.png",
     "default_title": "Quick Notes"
@@ -25,6 +25,7 @@
   "background": {
     "scripts": [
       "js/jquery.js",
+      "js/lodash.min.js",
       "js/util.js",
       "js/background.js"
     ],

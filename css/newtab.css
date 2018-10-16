@@ -17,7 +17,7 @@
 }
 
 html:before {
-    background: url('https://images.pexels.com/photos/1461891/pexels-photo-1461891.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center fixed;
+    background: #f7f7f7 no-repeat center center fixed;
     background-size: cover;
     content: "";
     position: fixed;

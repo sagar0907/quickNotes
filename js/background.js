@@ -147,11 +147,11 @@ let notes = function () {
     };
 
     function getNotes() {
-        return quickNotes;
+        return _.cloneDeep(quickNotes);
     }
 
     function getColumnNotes() {
-        return columnNotes;
+        return _.cloneDeep(columnNotes);
     }
 
     function getNoteById(noteId) {
@@ -217,17 +217,17 @@ let notes = function () {
         updateStorage();
     }
 
-    function changeNotePosition(noteId, columnNo, NodeIdList) {
+    function changeNotePosition(noteId, columnNo, columnIds) {
         util.each(columnNotes, function (noteIdList) {
             let index = noteIdList.indexOf(noteId);
             if (index > -1) {
                 noteIdList.splice(index, 1);
             }
         });
-        NodeIdList = util.filter(NodeIdList, function (noteId) {
+        columnIds = util.filter(columnIds, function (noteId) {
             return quickNotes[noteId]
         });
-        columnNotes[columnNo] = NodeIdList;
+        columnNotes[columnNo] = columnIds;
         updateStorage();
     }
 
@@ -254,6 +254,21 @@ let notes = function () {
         });
     }
 
+    function handleStorageChange(changes) {
+        if (changes.counter && changes.counter.newValue) {
+            notesCounter = changes.counter.newValue;
+        }
+        if (changes.columnNotes && changes.columnNotes.newValue) {
+            columnNotes = changes.columnNotes.newValue
+        }
+        if (changes.notes && changes.notes.newValue) {
+            quickNotes = changes.notes.newValue;
+        }
+        if (changes.columnNotes || changes.notes) {
+            triggerChangesInUi(columnNotes, quickNotes);
+        }
+    }
+
     return {
         getNotes: getNotes,
         getColumnNotes: getColumnNotes,
@@ -265,7 +280,8 @@ let notes = function () {
         addNote: addNote,
         deleteNote: deleteNote,
         changeNotePosition: changeNotePosition,
-        fetchFromStorage: fetchFromStorage
+        fetchFromStorage: fetchFromStorage,
+        handleStorageChange: handleStorageChange
     }
 }();
 
@@ -281,4 +297,25 @@ function getFonts() {
     return fonts;
 }
 
+function addStorageChangeHandler() {
+    chrome.storage.onChanged.addListener(notes.handleStorageChange);
+}
+
+function triggerChangesInUi(columnNotes, notes) {
+    chrome.tabs.query({}, function (tabs) {
+        let message = {
+            from: "quickNotes",
+            info: "storageUpdated",
+            message: {
+                columnNotes: columnNotes,
+                notes: notes
+            }
+        };
+        util.each(tabs, function (tab) {
+            chrome.tabs.sendMessage(tab.id, message);
+        });
+    });
+}
+
 notes.fetchFromStorage();
+addStorageChangeHandler();

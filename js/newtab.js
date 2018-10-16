@@ -1,5 +1,3 @@
-let back = chrome.extension.getBackgroundPage();
-
 let ui = {
     noteBox: $('<div class="note-box">' +
         '         <div class="note-pad">' +
@@ -40,15 +38,24 @@ let ui = {
         '    </div>')
 };
 
-let quickNotes = back.getNotes(),
-    colors = back.getColors(),
+let colors = back.getColors(),
     fonts = back.getFonts();
 
 function initHandlers() {
     $(".note-add-box").click(function (event) {
-        let noteId = quickNotes.addNote(getSmallestColumn());
-        addNoteToUI(noteId);
+        qN.addNote();
     });
+    chrome.runtime.onMessage.addListener(
+        function (request, sender) {
+            if (request.from === "quickNotes") {
+                if (request.info === "storageUpdated") {
+                    let message = request.message;
+                    if (message.columnNotes && message.notes) {
+                        qN.updateNotesInUi(message.columnNotes, message.notes)
+                    }
+                }
+            }
+        });
 }
 
 function initUiElements() {
@@ -87,28 +94,35 @@ function addNoteToList(noteId, note, list) {
         noteBox.find(".note-head").toggleClass("flip");
     });
     noteBox.find(".note-delete").click(function (event) {
-        quickNotes.deleteNote(noteId);
-        deleteNoteFromUI(noteBox);
+        qN.deleteNote(noteId);
     });
     noteBox.find(".color-selector").click(function (event) {
         let color = $(event.currentTarget).attr('data-color');
-        quickNotes.changeNoteColor(noteId, color);
-        setColorInUI(noteBox, color);
+        qN.changeNoteColor(noteId, color);
     });
     let titleBox = noteBox.find(".note-head-text");
     let textBox = noteBox.find(".note-text");
     titleBox.change(function () {
-        quickNotes.changeNoteTitle(noteId, titleBox.val());
+        qN.changeNoteTitle(noteId, titleBox.val());
     });
     util.attachMutationObserver(textBox[0], function () {
-        quickNotes.changeNoteText(noteId, noteBox.find(".note-text").html());
+        qN.changeNoteText(noteId, noteBox.find(".note-text").html());
     });
     list.append(noteBox);
 }
 
+function updateNoteInUi(noteId, note) {
+    let noteBox = $("#noteId_" + noteId);
+    if (!noteBox) return;
+    setColorInUI(noteBox, note.color);
+    noteBox.find(".note-head-text").val(note.title);
+    noteBox.find(".note-text").html(note.text);
+}
+
 function setupNotes() {
-    let notes = quickNotes.getNotes();
-    let columnNotes = quickNotes.getColumnNotes();
+    let notes = qN.getNotes();
+    let columnNotes = qN.getColumnNotes();
+    $(".note_list").remove();
     util.each(columnNotes, function (noteIdList, columnNo) {
         let columnDiv = $("#column_" + columnNo);
         let noteList = $('<div class="note_list"></div>');
@@ -126,16 +140,12 @@ function setupNotes() {
 }
 
 function addNoteToUI(noteId) {
-    let note = quickNotes.getNoteById(noteId);
+    let note = qN.getNoteById(noteId);
     let columnId = note.columnId;
     let noteList = $("#column_" + columnId).find('.note_list');
     addNoteToList(noteId, note, noteList);
     let titleBox = $("#noteId_" + noteId).find(".note-head-text");
     titleBox.focus();
-}
-
-function deleteNoteFromUI(noteBox) {
-    noteBox.remove();
 }
 
 function setColorInUI(noteBox, color) {
@@ -171,7 +181,7 @@ function sortableHandler(event, ui) {
     util.eachDomObj(list.find(".note-box"), function (noteBox) {
         columnIds.push(noteBox.attr("id").split("_")[1]);
     });
-    quickNotes.changeNotePosition(noteId, columnNo, columnIds);
+    qN.changeNotePosition(noteId, columnNo, columnIds);
 }
 
 function launchLinkQueryPopup(callback) {
@@ -194,6 +204,8 @@ function launchLinkQueryPopup(callback) {
 }
 
 $(document).ready(function () {
+    let image_number = Math.floor(Math.random() * 20) + 1;
+    $('head').append('<style>html:before{background-image: url("https://sagar0907.github.io/static/images/quicknotes/background/q_' + image_number + '.jpeg");}</style>');
     initHandlers();
     initUiElements();
     setupNotes();
