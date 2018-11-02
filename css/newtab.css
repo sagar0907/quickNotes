@@ -41,7 +41,7 @@ body {
 
 .full_body {
     min-width: 1080px;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .header {
