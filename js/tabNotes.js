@@ -62,7 +62,7 @@ let qN = function () {
             }
         });
         columnIds = util.filter(columnIds, function (noteId) {
-            return quickNotes[noteId]
+            return notes[noteId]
         });
         columnNotes[columnNo] = columnIds;
         quickNotes.changeNotePosition(noteId, columnNo, columnIds);
