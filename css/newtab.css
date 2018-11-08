@@ -1,9 +1,90 @@
-/* latin */
+/* latin-ext */
 @font-face {
-    font-family: 'Noto Sans';
+    font-family: 'Alegreya';
     font-style: normal;
     font-weight: 400;
-    src: local('Noto Sans'), local('NotoSans'), url(../fonts/NotoSans_latin.woff2) format('woff2');
+    src: local('Alegreya'), local('Alegreya'), url(../fonts/Alegreya_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Alegreya';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Alegreya'), local('Alegreya'), url(../fonts/Alegreya_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Dancing Script';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Dancing Script'), local('DancingScript'), url(../fonts/Dancing_Script_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Dancing Script';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Dancing Script'), local('DancingScript'), url(../fonts/Dancing_Script_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 400;
+    src: local('EB Garamond'), local('EBGaramond'), url(../fonts/EB_Garamond_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 400;
+    src: local('EB Garamond'), local('EBGaramond'), url(../fonts/EB_Garamond_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato'), local('Lato'), url(../fonts/Lato_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato'), local('Lato'), url(../fonts/Lato_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat'), local('Montserrat'), url(../fonts/Montserrat_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat'), local('Montserrat'), url(../fonts/Montserrat_Latin.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -12,8 +93,125 @@
     font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 400;
-    src: local('Noto Sans'), local('NotoSans'), url(../fonts/NotoSans_latin-ext.woff2) format('woff2');
+    src: local('Noto Sans'), local('NotoSans'), url(../fonts/NotoSans_Latin_Ext.woff2) format('woff2');
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Noto Sans'), local('NotoSans'), url(../fonts/NotoSans_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald'), local('Oswald'), url(../fonts/Oswald_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oswald'), local('Oswald'), url(../fonts/Oswald_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oxygen'), local('Oxygen'), url(../fonts/Oxygen_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Oxygen'), local('Oxygen'), url(../fonts/Oxygen_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Quicksand'), local('Quicksand'), url(../fonts/Quicksand_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Quicksand'), local('Quicksand'), url(../fonts/Quicksand_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url(../fonts/Roboto_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url(../fonts/Roboto_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto Mono'), local('RobotoMono'), url(../fonts/Roboto_Mono_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto Mono'), local('RobotoMono'), url(../fonts/Roboto_Mono_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Varela Round'), local('VarelaRound'), url(../fonts/Varela_Round_Latin_Ext.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Varela Round'), local('VarelaRound'), url(../fonts/Varela_Round_Latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 html:before {
@@ -29,14 +227,68 @@ html:before {
     height: 100%;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: none;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    margin: 0;
 }
 
 .row {
     margin-left: 0;
     margin-right: 0;
+}
+
+.row:after, .row:before {
+    display: table;
+    content: " ";
+}
+.row:after {
+    clear: both;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+input {
+    line-height: normal;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:focus, a:hover {
+    color: #23527c;
+    text-decoration: underline;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+blockquote {
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    border: none;
 }
 
 .full_body {
@@ -65,7 +317,7 @@ body {
 }
 
 .format-box {
-    width: 700px;
+    width: 720px;
     height: 60px;
     float: left;
     margin-left: 10px;
@@ -88,7 +340,7 @@ body {
 
     .format-box {
         position: fixed;
-        left: calc(50% - 350px);
+        left: calc(50% - 360px);
         background-color: rgba(255, 255, 255, 1);
         border-radius: 0 0 35px 35px / 0 0 50px 50px;
         box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.16);
@@ -329,7 +581,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2000;
 }
 
@@ -397,18 +649,28 @@ body {
 
 .toolbar a,
 .font-wrapper,
+.fsize-wrapper,
 .fore-wrapper,
 .back-wrapper {
     position: relative;
     font-size: 13px;
+    line-height: 20px;
     background: #FFF;
-    font-family: 'Noto Sans', sans-serif;
     color: #555;
     padding: 6px;
     margin: -2px;
     margin-top: 10px;
     display: inline-block;
     text-decoration: none;
+}
+
+.font-wrapper {
+    width: 120px;
+    text-align: left;
+}
+.fsize-wrapper {
+    width: 50px;
+    text-align: left;
 }
 
 .fore-wrapper a,
@@ -419,12 +681,15 @@ body {
 
 .toolbar a:hover,
 .font-wrapper:hover,
+.fsize-wrapper:hover,
 .fore-wrapper:hover,
 .back-wrapper:hover {
     background: #f2f2f2;
     border-color: #8c8c8c;
 }
 
+.font-wrapper,
+.fsize-wrapper,
 .back-wrapper,
 a[data-command='strikeThrough'],
 a[data-command='justifyFull'],
@@ -436,7 +701,8 @@ a[data-command='insertimage'] {
     margin-right: -1px;
 }
 
-.font-wrapper,
+.fsize-wrapper,
+.fore-wrapper,
 a[data-command='bold'],
 a[data-command='justifyLeft'],
 a[data-command='insertUnorderedList'],
@@ -459,6 +725,7 @@ a.palette-item:hover {
 }
 
 .font-list,
+.fsize-list,
 .fore-palette,
 .back-palette {
     display: none;
@@ -477,6 +744,7 @@ a.palette-item:hover {
 }
 
 .font-wrapper:hover .font-list,
+.fsize-wrapper:hover .fsize-list,
 .fore-wrapper:hover .fore-palette,
 .back-wrapper:hover .back-palette {
     display: block;
@@ -495,9 +763,36 @@ a.palette-item:hover {
 
 .font-wrapper:hover .font-list {
     height: auto;
+    max-height: 240px;
+    overflow-y: auto;
+    right: 0;
+    width: 120px;
+}
+
+.fsize-wrapper:hover .fsize-list {
+    width: 50px;
+    right: 0;
+    height: auto;
+}
+
+.tool-color {
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 4px;
+    bottom: 0;
+}
+
+.fore-wrapper .tool-color {
+    right: 3px;
+}
+
+.back-wrapper .tool-color {
+    left: 3px;
 }
 
 .font-wrapper:hover .fore-triangle,
+.fsize-wrapper:hover .fore-triangle,
 .fore-wrapper:hover .fore-triangle,
 .back-wrapper:hover .back-triangle {
     display: block;
@@ -511,6 +806,17 @@ a.palette-item:hover {
     right: 4px;
     z-index: 1030;
 }
+.font-wrapper:hover .fore-triangle {
+    right: 52px;
+}
+.fsize-wrapper:hover .fore-triangle {
+    right: 17px;
+}
+.button-drop-icon {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
 
 .fore-palette a,
 .back-palette a {
@@ -518,7 +824,8 @@ a.palette-item:hover {
     margin-bottom: 2px;
 }
 
-.font-list a {
+.font-list a,
+.fsize-list a {
     width: 100%;
     color: #555;
     margin: 0;

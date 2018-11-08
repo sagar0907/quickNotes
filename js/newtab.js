@@ -38,9 +38,6 @@ let ui = {
         '    </div>')
 };
 
-let colors = back.getColors(),
-    fonts = back.getFonts();
-
 function initHandlers() {
     $(".note-add-box").click(function (event) {
         qN.addNote();
@@ -102,6 +99,7 @@ function addNoteToList(noteId, note, list) {
     });
     let titleBox = noteBox.find(".note-head-text");
     let textBox = noteBox.find(".note-text");
+    setupTextBoxHandlers(textBox);
     titleBox.change(function () {
         qN.changeNoteTitle(noteId, titleBox.val());
     });
@@ -146,6 +144,20 @@ function addNoteToUI(noteId) {
     addNoteToList(noteId, note, noteList);
     let titleBox = $("#noteId_" + noteId).find(".note-head-text");
     titleBox.focus();
+}
+
+function setupTextBoxHandlers(textBox) {
+    textBox.on('keydown keypress', function (event) {
+        if (event.keyCode === 9) { // tab key
+            event.preventDefault();
+            if (event.shiftKey) {
+                document.execCommand('outdent', false, null);
+            }
+            else {
+                document.execCommand('indent', false, null);
+            }
+        }
+    });
 }
 
 function setColorInUI(noteBox, color) {
@@ -211,67 +223,4 @@ $(document).ready(function () {
     setupNotes();
     initWYSIWYG();
 });
-
-
-/* WYSIWYG */
-function initWYSIWYG() {
-    let palleteList = colors.getPalleteList(),
-        fontList = fonts.getFontList();
-    let forePalette = $('.fore-palette');
-    let backPalette = $('.back-palette');
-    let fontPallete = $('.font-list');
-
-    util.each(palleteList, function (pallete) {
-        forePalette.append('<a href="#" data-command="forecolor" data-value="' + '#' + pallete.bg + '" style="background-color:'
-            + '#' + pallete.bg + ';" class="palette-item"></a>');
-        backPalette.append('<a href="#" data-command="backcolor" data-value="' + '#' + pallete.bg + '" style="background-color:'
-            + '#' + pallete.bg + ';" class="palette-item"></a>');
-    });
-
-    util.each(fontList, function (fontDetails) {
-        fontPallete.append('<a href="#" data-command="fontName" data-value="' + fontDetails.fontFamily + '" style="font-family:'
-            + fontDetails.fontFamily + ';" class="font-item">' + fontDetails.name + '</a>');
-    });
-
-    $('.toolbar a').click(function (e) {
-        let command = $(this).data('command');
-        if (command === 'h1' || command === 'h2' || command === 'p') {
-            document.execCommand('formatBlock', false, command);
-        }
-        else if (command === 'forecolor' || command === 'backcolor' || command === 'fontName') {
-            document.execCommand(command, false, $(this).data('value'));
-        }
-        else if (command === 'createlink' || command === 'insertimage') {
-            let sel = window.getSelection();
-            if (!sel) return;
-            let range = null;
-            try {
-                range = sel.getRangeAt(0);
-            } catch (e) {
-                return;
-            }
-            if (!range) return;
-            launchLinkQueryPopup(function (url, callback) {
-                if (url) {
-                    if (!RegExp("^https?://.+").test(url)) {
-                        $("#popup_notification").show()
-                    } else {
-                        callback();
-                        sel.removeAllRanges();
-                        sel.addRange(range);
-                        document.execCommand(command, false, url);
-                    }
-                } else {
-                    callback();
-                }
-            });
-        }
-        else {
-            document.execCommand($(this).data('command'), false, null);
-        }
-    });
-}
-
-
-
 
