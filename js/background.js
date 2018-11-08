@@ -4,56 +4,66 @@ let colors = function () {
         black: {
             name: 'black',
             bg: '000000',
+            rgb: "rgb(0, 0, 0)",
             text: 'FFFFFF'
         },
         darkGray: {
             name: 'darkGray',
             bg: '555555',
+            rgb: "rgb(85, 85, 85)",
             text: 'FFFFFF',
             noteColor: true
         },
         darkBlue: {
             name: 'darkBlue',
             bg: '1287A8',
+            rgb: "rgb(18, 135, 168)",
             text: 'FFFFFF',
             noteColor: true
         },
         blue: {
             name: 'blue',
             bg: '29B6F6',
+            rgb: "rgb(41, 182, 246)",
             text: 'FFFFFF'
         },
         green: {
             name: 'green',
             bg: '66BB6A',
+            rgb: "rgb(102, 187, 106)",
             text: 'FFFFFF',
             noteColor: true
         },
         red: {
             name: 'red',
             bg: 'EF5350',
+            rgb: "rgb(239, 83, 80)",
             text: 'FFFFFF',
             noteColor: true
         },
         pink: {
             name: 'pink',
             bg: 'F06292',
+            rgb: "rgb(240, 98, 146)",
             text: 'FFFFFF'
         },
         orange: {
             name: 'orange',
             bg: 'FFA726',
+            rgb: "rgb(255, 167, 38)",
             text: 'FFFFFF'
         },
         yellow: {
             name: 'yellow',
             bg: 'EED359',
+            rgb: "rgb(238, 211, 89)",
             text: '555555',
             noteColor: true
         },
         white: {
             name: 'white',
             bg: 'FFFFFF',
+            rgb: "rgb(255, 255, 255)",
             text: '555555',
             noteColor: true
         }
@@ -78,36 +88,93 @@ let colors = function () {
 }();
 
 let fonts = function () {
-    let fontList = ["Arial", "Helvetica", "Noto Sans", "Times", "Times New Roman", "Courier New", "Impact"];
+    let fontList = ["Arial", "Alegreya", "Courier New", "Dancing Script", "EB Garamond", "Helvetica", "Impact", "Lato", "Montserrat", "Noto Sans", "Oswald", "Oxygen", "Quicksand", "Roboto", "Roboto Mono", "Times", "Varela Round"];
     let fontDetails = {
         "Arial": {
             name: "Arial",
-            fontFamily: "Arial"
+            fontFamily: "Arial",
+            familyName: "Arial"
         },
-        "Helvetica": {
-            name: "Helvetica",
-            fontFamily: "Helvetica"
-        },
-        "Noto Sans": {
-            name: "Noto Sans",
-            fontFamily: "Noto Sans"
-        },
-        "Times": {
-            name: "Times",
-            fontFamily: "Times"
-        },
-        "Times New Roman": {
-            name: "Times New Roman",
-            fontFamily: "Times New Roman"
+        "Alegreya": {
+            name: "Alegreya",
+            fontFamily: "Alegreya",
+            familyName: "Alegreya"
         },
         "Courier New": {
             name: "Courier New",
-            fontFamily: "Courier New"
+            fontFamily: "Courier New",
+            familyName: '"Courier New"'
+        },
+        "Dancing Script": {
+            name: "Dancing Script",
+            fontFamily: "Dancing Script",
+            familyName: '"Dancing Script"'
+        },
+        "EB Garamond": {
+            name: "EB Garamond",
+            fontFamily: "EB Garamond",
+            familyName: '"EB Garamond"'
+        },
+        "Helvetica": {
+            name: "Helvetica",
+            fontFamily: "Helvetica",
+            familyName: "Helvetica"
         },
         "Impact": {
             name: "Impact",
-            fontFamily: "Impact"
+            fontFamily: "Impact",
+            familyName: "Impact"
         },
+        "Lato": {
+            name: "Lato",
+            fontFamily: "Lato",
+            familyName: "Lato"
+        },
+        "Montserrat": {
+            name: "Montserrat",
+            fontFamily: "Montserrat",
+            familyName: "Montserrat"
+        },
+        "Noto Sans": {
+            name: "Noto Sans",
+            fontFamily: "Noto Sans",
+            familyName: '"Noto Sans"'
+        },
+        "Oswald": {
+            name: "Oswald",
+            fontFamily: "Oswald",
+            familyName: "Oswald"
+        },
+        "Oxygen": {
+            name: "Oxygen",
+            fontFamily: "Oxygen",
+            familyName: "Oxygen"
+        },
+        "Quicksand": {
+            name: "Quicksand",
+            fontFamily: "Quicksand",
+            familyName: "Quicksand"
+        },
+        "Roboto": {
+            name: "Roboto",
+            fontFamily: "Roboto",
+            familyName: "Roboto"
+        },
+        "Roboto Mono": {
+            name: "Roboto Mono",
+            fontFamily: "Roboto Mono",
+            familyName: '"Roboto Mono"'
+        },
+        "Times": {
+            name: "Times",
+            fontFamily: "Times",
+            familyName: "Times"
+        },
+        "Varela Round": {
+            name: "Varela Round",
+            fontFamily: "Varela Round",
+            familyName: '"Varela Round"'
+        }
     };
 
     function getFontList() {
