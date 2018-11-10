@@ -161,7 +161,7 @@ function setupTextBoxHandlers(textBox) {
 }
 
 function setColorInUI(noteBox, color) {
-    noteBox.attr('data-color' + color);
+    noteBox.attr('data-color', color);
     let notePad = noteBox.find('.note-pad'),
         dragIcon = notePad.find('.note-move-icon'),
         optionIcon = notePad.find('.note-options-icons'),

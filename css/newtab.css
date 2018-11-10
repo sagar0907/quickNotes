@@ -317,7 +317,7 @@ blockquote {
 }
 
 .format-box {
-    width: 720px;
+    width: 740px;
     height: 60px;
     float: left;
     margin-left: 10px;
@@ -340,7 +340,7 @@ blockquote {
 
     .format-box {
         position: fixed;
-        left: calc(50% - 360px);
+        left: calc(50% - 370px);
         background-color: rgba(255, 255, 255, 1);
         border-radius: 0 0 35px 35px / 0 0 50px 50px;
         box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.16);
@@ -541,12 +541,49 @@ blockquote {
     font-size: 24px;
 }
 
+.note-text font[size="1"] {
+    font-size: 12px;
+}
+.note-text font[size="2"] {
+    font-size: 14px;
+}
+.note-text font[size="3"] {
+    font-size: 16px;
+}
+.note-text font[size="4"] {
+    font-size: 18px;
+}
+.note-text font[size="5"] {
+    font-size: 20px;
+}
+.note-text font[size="6"] {
+    font-size: 22px;
+}
+.note-text font[size="7"] {
+    font-size: 24px;
+}
+
 .note-text ul, .note-text ol {
     padding-left: 20px;
 }
 
+[data-color="darkGray"] a {
+    color: #29B6F6;
+}
 [data-color="darkBlue"] a {
-    color: #FFA726;
+    color: #EED359;
+}
+[data-color="green"] a {
+    color: #1287A8;
+}
+[data-color="red"] a {
+    color: #EED359;
+}
+[data-color="yellow"] a {
+    color: #1287A8;
+}
+[data-color="white"] a {
+    color: #1287A8;
 }
 
 .note-add-box {
@@ -627,6 +664,7 @@ blockquote {
     width: 48%;
     background-color: #1287A8;
     color: #fff;
+    cursor: pointer;
 }
 
 #popup_cancel {
@@ -635,6 +673,7 @@ blockquote {
     margin-top: 20px;
     width: 48%;
     background-color: #CCCCCC;
+    cursor: pointer;
 }
 
 #popup_notification {
