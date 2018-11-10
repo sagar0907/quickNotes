@@ -1,12 +1,15 @@
 let colors = back.getColors(),
     fonts = back.getFonts(),
+    fontSizes = back.getFontSizes(),
     palleteList = colors.getPalleteList(),
-    fontList = fonts.getFontList();
+    fontList = fonts.getFontList(),
+    fontSizeList = fontSizes.getFontSizeList();
 
 function initWYSIWYG() {
     let forePalette = $('.fore-palette');
     let backPalette = $('.back-palette');
     let fontPallete = $('.font-list');
+    let fontSizePallete = $('.fsize-list');
 
     util.each(palleteList, function (pallete) {
         forePalette.append('<a href="#" data-command="forecolor" data-value="' + '#' + pallete.bg + '" style="background-color:'
@@ -20,16 +23,20 @@ function initWYSIWYG() {
             + fontDetails.fontFamily + ';" class="font-item">' + fontDetails.name + '</a>');
     });
 
+    util.each(fontSizeList, function (fontSizeDetails) {
+        fontSizePallete.append('<a href="#" data-command="fontSize" data-value="' + fontSizeDetails.sizeNo + '">' + fontSizeDetails.fontSize + '</a>');
+    });
+
     $('.toolbar a').click(function (e) {
+        let sel = window.getSelection();
         let command = $(this).data('command');
         if (command === 'h1' || command === 'h2' || command === 'p') {
             document.execCommand('formatBlock', false, command);
         }
-        else if (command === 'forecolor' || command === 'backcolor' || command === 'fontName') {
+        else if (command === 'forecolor' || command === 'backcolor' || command === 'fontName' || command === 'fontSize') {
             document.execCommand(command, false, $(this).data('value'));
         }
         else if (command === 'createlink' || command === 'insertimage') {
-            let sel = window.getSelection();
             if (!sel) return;
             let range = null;
             try {
@@ -61,10 +68,10 @@ function initWYSIWYG() {
 }
 
 function resetToolbar() {
-    let sel = window.getSelection();
     let foreColor = document.queryCommandValue("ForeColor");
     let backColor = document.queryCommandValue("BackColor");
     let fontName = document.queryCommandValue("fontName");
+    let fontSizeNo = document.queryCommandValue("fontSize");
     let isBold = document.queryCommandState("bold");
     let isItalic = document.queryCommandState("italic");
     let isUnderline = document.queryCommandState("underline");
@@ -92,6 +99,7 @@ function resetToolbar() {
     let fColor = "rgba(255, 255, 255)";
     let bColor = "rgba(255, 255, 255)";
     let fName = "Montserrat";
+    let fSize = "14";
     util.each(palleteList, function (pallete) {
         if (pallete.rgb === foreColor) {
             fColor = foreColor;
@@ -105,6 +113,11 @@ function resetToolbar() {
             fName = fontDetails.name;
         }
     });
+    util.each(fontSizeList, function (fontSizeDetails) {
+        if (fontSizeDetails.sizeNo === fontSizeNo) {
+            fSize = fontSizeDetails.fontSize;
+        }
+    });
     $(".fore-wrapper .tool-color").css({
         'background-color': fColor
     });
@@ -112,6 +125,8 @@ function resetToolbar() {
         'background-color': bColor
     });
     $(".font-name").html(fName);
+
+    $(".font-size").html(fSize);
 
     $("[data-command='bold']").css({
         color: boldColor

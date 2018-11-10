@@ -195,6 +195,57 @@ let fonts = function () {
     }
 }();
 
+let fontSizes = function () {
+    let sizeList = ["1", "2", "3", "4", "5", "6", "7"];
+    let sizeDetails = {
+        "1": {
+            sizeNo: "1",
+            fontSize: "12"
+        },
+        "2": {
+            sizeNo: "2",
+            fontSize: "14"
+        },
+        "3": {
+            sizeNo: "3",
+            fontSize: "16"
+        },
+        "4": {
+            sizeNo: "4",
+            fontSize: "18"
+        },
+        "5": {
+            sizeNo: "5",
+            fontSize: "20"
+        },
+        "6": {
+            sizeNo: "6",
+            fontSize: "22"
+        },
+        "7": {
+            sizeNo: "7",
+            fontSize: "24"
+        }
+    };
+
+    function getFontSizeList() {
+        let list = [];
+        util.each(sizeList, function (sizeNo) {
+            list.push(sizeDetails[sizeNo]);
+        });
+        return list;
+    }
+
+    function getDetailsForFontSize(sizeNo) {
+        return sizeDetails[sizeNo];
+    }
+
+    return {
+        getFontSizeList: getFontSizeList,
+        getDetailsForFontSize: getDetailsForFontSize
+    }
+}();
+
 let notes = function () {
     let defaultColumn = 1;
     let defaultColor = 'white';
@@ -362,6 +413,10 @@ function getColors() {
 
 function getFonts() {
     return fonts;
+}
+
+function getFontSizes() {
+    return fontSizes;
 }
 
 function addStorageChangeHandler() {

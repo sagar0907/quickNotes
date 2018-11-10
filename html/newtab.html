@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Quick Notes</title>
-    <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" type="text/css" href="../css/newtab.css">
+    <style id="editor-style"></style>
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery-ui.min.js"></script>
     <script src="../js/lodash.min.js"></script>
@@ -34,13 +34,6 @@
                     <div class="fsize-wrapper">
                         <div class="font-size">14</div>
                         <div class="fsize-list">
-                            <a href="#" data-command="fontSize" data-value="12">12</a>
-                            <a href="#" data-command="fontSize" data-value="14">14</a>
-                            <a href="#" data-command="fontSize" data-value="16">16</a>
-                            <a href="#" data-command="fontSize" data-value="18">18</a>
-                            <a href="#" data-command="fontSize" data-value="20">20</a>
-                            <a href="#" data-command="fontSize" data-value="22">22</a>
-                            <a href="#" data-command="fontSize" data-value="24">24</a>
                         </div>
                         <div class="fore-triangle">
                         </div>
@@ -79,6 +72,7 @@
                     <a href="#" data-command='insertimage'><i class='fa fa-image'></i></a>
                     <a href="#" data-command='subscript'><i class='fa fa-subscript'></i></a>
                     <a href="#" data-command='superscript'><i class='fa fa-superscript'></i></a>
+                    <a href="#" data-command='removeFormat'><i class='fa fa-eraser'></i></a>
                 </div>
             </div>
         </div>
