@@ -42,6 +42,11 @@ function initHandlers() {
     $(".note-add-box").click(function (event) {
         qN.addNote();
     });
+    $(document).click(function (event) {
+        if(!$(event.target).closest(".flip").length) {
+            $(".flip").removeClass("flip");
+        }
+    });
     chrome.runtime.onMessage.addListener(
         function (request, sender) {
             if (request.from === "quickNotes") {

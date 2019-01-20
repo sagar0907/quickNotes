@@ -776,6 +776,7 @@ a.palette-item:hover {
 }
 
 .font-wrapper,
+.fsize-wrapper,
 .fore-wrapper,
 .back-wrapper {
     display: inline-block;

@@ -1,3 +1,4 @@
+let extensionId = chrome.runtime.id;
 let colors = function () {
     let colorList = ['black', 'darkGray', 'darkBlue', 'blue', 'green', 'red', 'pink', 'orange', 'yellow', 'white'];
     let pallete = {
@@ -253,7 +254,7 @@ let notes = function () {
     let quickNotes = {
         '1': {
             "color": "yellow",
-            "text": "<img src=\"http://sagar0907.github.io/static/images/quicknotes/Quick_Notes_blue_600x200.png\"><div><div>Hello Organised Human!</div><div><br></div><div>Quick Notes lets you make notes on the fly which are accessible at the launch a new tab.</div><div>It helps you organise your notes and color code them as you please. It lets you add rich formatted text, images and links. Also drag and drop pretty much any thing you find interesting while you browse the internet.</div></div><div><br></div><div>Thank You.</div>",
+            "text": "<img src=\"http://sagar0907.github.io/static/images/quicknotes/Quick_Notes_blue_600x200.png\"><div><div>Hello Organised Human!</div><div><br></div><div>Quick Notes lets you make notes on the fly which are accessible at the launch a new tab.</div><div>Organise your notes and color code them as you please. Add rich formatted text, images and links. Also, drag and drop pretty much any thing you find interesting while you browse the web.</div></div><div><br></div><div>Thank You.</div>",
             "title": "Welcome to Quick Notes."
         }
     };
@@ -310,14 +311,17 @@ let notes = function () {
         updateStorage();
     }
 
-    function addNote(columnId) {
+    function addNote(columnId, note) {
         columnId = columnId || defaultColumn;
         notesCounter++;
-        let noteId = notesCounter + '';
+        let noteId = notesCounter + '',
+            title = (note && note.title) || '',
+            color = (note && note.color) || defaultColor,
+            text = (note && note.text) || '';
         quickNotes[noteId] = {
-            title: '',
-            color: defaultColor,
-            text: ''
+            title: title,
+            color: color,
+            text: text
         };
         columnNotes[columnId].push(noteId);
         updateStorage();
@@ -354,6 +358,7 @@ let notes = function () {
             if (chrome.runtime.lastError) {
             }
         });
+        triggerChangesInUi(columnNotes, quickNotes);
     }
 
     function fetchFromStorage() {
@@ -403,6 +408,10 @@ let notes = function () {
     }
 }();
 
+function contextMenuClicked(info, tab) {
+    chrome.tabs.executeScript(tab.id, {file: "js/getSelection.js"});
+}
+
 function getNotes() {
     return notes;
 }
@@ -423,6 +432,29 @@ function addStorageChangeHandler() {
     chrome.storage.onChanged.addListener(notes.handleStorageChange);
 }
 
+function addMessageListener() {
+    chrome.runtime.onMessage.addListener(
+        function(request, sender, sendResponse) {
+            if (request.type==="quickNote") {
+                notes.addNote(null, {text: request.text, color: 'white'});
+            }
+            if(request.type === "readClipboard") {
+                let result = false;
+                let ce = $("#ce");
+                ce.html('');
+                ce.focus();
+
+                if (document.execCommand('paste')) {
+                    result = ce.html();
+                }
+                ce.html('');
+                if (result) {
+                    notes.addNote(null, {text: result, color: 'white'});
+                }
+            }
+        });
+}
+
 function triggerChangesInUi(columnNotes, notes) {
     chrome.tabs.query({}, function (tabs) {
         let message = {
@@ -441,3 +473,30 @@ function triggerChangesInUi(columnNotes, notes) {
 
 notes.fetchFromStorage();
 addStorageChangeHandler();
+addMessageListener();
+chrome.browserAction.onClicked.addListener(function (tab) {
+    let windowId = tab.windowId;
+    let url = tab.url;
+    if (url === "chrome://newtab/") {
+        return;
+    }
+    chrome.tabs.query({windowId: windowId}, function (tabs) {
+        let newTabFound = util.any(tabs, function (tab) {
+            if (tab.url === "chrome://newtab/") {
+                chrome.tabs.highlight({windowId: windowId, tabs: [tab.index]});
+                return true;
+            }
+        });
+        if (!newTabFound) {
+            chrome.tabs.create({});
+        }
+    });
+});
+
+chrome.contextMenus.create({
+    id: 'QuickNotes',
+    title: 'Make a Quick Note',
+    contexts: ['selection'],
+    onclick: contextMenuClicked
+}, function () {
+});
